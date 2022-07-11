@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Studios Wait Times</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="http://assets.stickpng.com/images/5cb78234a7c7755bf004c141.png" alt="" width="30" height="24"
+                    class="d-inline-block align-text-top">
+                Universal Studios Hollywood
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="display-5 text-center mt-4">Current Wait Times</h2>
+        <div class="row justify-content-evenly">
+            <% for(let ride of rides) { %>
+                <div class="col-md-6 my-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <%= ride.name %>
+                            </h3>
+                            <% if (ride.is_open) {%>
+                                <h5>Wait Time: <%= ride.wait_time %>
+                                </h5>
+                                <% } else {%>
+                                    <h5 class="text-danger">Ride is Closed</h5>
+                                    <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
